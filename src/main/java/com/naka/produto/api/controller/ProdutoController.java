@@ -1,5 +1,6 @@
 package com.naka.produto.api.controller;
 
+import com.naka.produto.api.controller.openapi.ProdutoControllerOpenApi;
 import com.naka.produto.api.model.ProdutoResponse;
 import com.naka.produto.api.model.request.ProdutoRequest;
 import com.naka.produto.domain.model.Produto;
@@ -15,11 +16,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "/v1/produtos",
         consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProdutoController {
+public class ProdutoController implements ProdutoControllerOpenApi {
 
     @Autowired
     private ProdutoService produtoService;
 
+    @Override
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoResponse adiciona(@Valid @RequestBody ProdutoRequest produtoRequest) {
@@ -33,6 +35,7 @@ public class ProdutoController {
         return produtoResponse;
     }
 
+    @Override
     @GetMapping("/{id}")
     public ProdutoResponse busca(@PathVariable Long id) {
         Produto produto = produtoService.buscaOuFalha(id);
@@ -41,12 +44,14 @@ public class ProdutoController {
         return produtoResponse;
     }
 
+    @Override
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remove(@PathVariable Long id) {
         produtoService.remove(id);
     }
 
+    @Override
     @PutMapping("/{id}")
     public ProdutoResponse atualiza(@PathVariable Long id, @Valid @RequestBody ProdutoRequest produtoRequest) {
         Produto produto = toDomainObject(produtoRequest);
