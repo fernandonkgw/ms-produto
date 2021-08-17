@@ -1,4 +1,4 @@
-package com.naka.produto.api.exceptionhandler;
+package com.naka.product.api.exceptionhandler;
 
 import lombok.Getter;
 

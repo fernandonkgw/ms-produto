@@ -1,6 +1,6 @@
-package com.naka.produto.api.exceptionhandler;
+package com.naka.product.api.exceptionhandler;
 
-import com.naka.produto.domain.exception.EntidadeNaoEncontradaException;
+import com.naka.product.domain.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -32,8 +32,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handleValidationInternal(ex, headers, status, request, ex.getBindingResult());
     }
 
-    @ExceptionHandler(EntidadeNaoEncontradaException.class)
-    public ResponseEntity<?> handleEntidadeNaoEncontrada(EntidadeNaoEncontradaException ex,
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<?> handleEntidadeNaoEncontrada(EntityNotFoundException ex,
                                                          WebRequest request) {
 
         HttpStatus status = HttpStatus.NOT_FOUND;

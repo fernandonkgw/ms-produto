@@ -1,10 +1,10 @@
-package com.naka.produto;
+package com.naka.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsProdutoApplicationTests {
+class MsProductApplicationTests {
 
     @Test
     void contextLoads() {

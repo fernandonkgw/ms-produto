@@ -1,13 +1,13 @@
-package com.naka.produto;
+package com.naka.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsProdutoApplication {
+public class MsProductApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MsProdutoApplication.class, args);
+        SpringApplication.run(MsProductApplication.class, args);
     }
 
 }
